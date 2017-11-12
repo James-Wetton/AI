@@ -7,12 +7,6 @@ from string import ascii_lowercase
 from collections import Counter
 x = 1
 
-f = open('README.txt', 'r')
-print(f.readline())
-print(f.readline())
-print(f.readline())
-print("\n \n \n")
-f.close()
 
 usernamecheck = 0 
 while usernamecheck == 0:
@@ -20,7 +14,9 @@ while usernamecheck == 0:
         print("To restart, type \'quit()\' in any field")
         time.sleep(x)
         foo = ['Have we spoken before? ', 'Wait, have we spoken before? ', 'Have we met? ']
-        used = input(random.choice(foo))
+        ask = random.choice(foo)
+        os.system("say . " + ask)
+        used = input(ask)
         time.sleep(x)
         if used == ('quit()'):
             pass
@@ -54,7 +50,7 @@ while usernamecheck == 0:
                 print("\n")
                 print("Your name is " + name + "and you're " + str(age) + " ")
                 print("Your favourite colour is " + colour)
-                correct = input("Is this the correct account? Y/N ")
+                correct = input("Am I right? ")
                 if correct in ('Y', 'y', 'Yes', 'yes'):
                     print("I thought so...")
                     f.close()
