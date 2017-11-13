@@ -13,15 +13,15 @@ while usernamecheck == 0:
     try:
         print("To restart, type \'quit()\' in any field")
         time.sleep(x)
-        foo = ['Have we spoken before? ', 'Wait, have we spoken before? ', 'Have we met? ']
+        foo = ['Have we spoken before? ', 'Wait, have we spoken before? ', 'Have we met? ', 'Hey there! Do I know you? ', 'Do I know you? ']
         ask = random.choice(foo)
-        os.system("say . " + ask)
         used = input(ask)
         time.sleep(x)
         if used == ('quit()'):
-            pass
+            break
         if used in ('Y', 'Yes', 'y', 'yes'):
-            username = input("What's your name again? ")
+            randomqu = ['What\'s your name? ', 'What\'s your name again? ', 'I Don\'t remember your name! What is it again? ']
+            username = input(random.choice(randomqu))
             if os.path.exists(username + '.txt'):
                 time.sleep(x)
                 print("I thought I remembered you!")
