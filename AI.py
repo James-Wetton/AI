@@ -2,8 +2,10 @@ import time
 import random
 import os
 import sys
+from sys import argv
 import pybase64
 from string import ascii_lowercase
+from string import punctuation
 from collections import Counter
 x = 1
 
@@ -70,6 +72,7 @@ while usernamecheck == 0:
                 print("Sorry, I don't remember anybody called " + username)
                 
         else:
+            randomqn = ['What\'s your name? ', 'So, what\'s your name? ', '']
             name = input("What's your name? ")
             time.sleep(x)
             if name == ('quit()'):
