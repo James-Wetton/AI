@@ -93,9 +93,19 @@ while usernamecheck == 0:
                 colour = input("So, " + name + " , what's your favourite colour? ")
                 time.sleep(x)
                 f.close()
-                f = open('colour.txt', 'a')
-        
+
+                f = open('colour.txt', 'r')
+                keyWords = [colour]
+                for f in argv[1:]:
+                    all_lines = f.readlines()
+                    for word in keyWords:
+                        if word in word_freq:
+                            print("I know someone who loves that colour too! ")
+                        else:
+                            print("I don't know anyone else with colour tastes as good as your's! ")
                 print("I really love " + colour + " too !")
+                f.close
+                f = open('colour.txt', 'a')
                 f.write(colour + '\n')
                 f.close()
 
