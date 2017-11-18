@@ -92,6 +92,8 @@ while usernamecheck == 0:
             
                 colour = input("So, " + name + " , what's your favourite colour? ")
                 time.sleep(x)
+                f.close()
+                f = open('colour.txt', 'a')
         
                 print("I really love " + colour + " too !")
                 f.write(colour + '\n')
