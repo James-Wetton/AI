@@ -4,6 +4,7 @@ import os
 import sys
 from sys import argv
 import pybase64
+import getpass
 from string import ascii_lowercase
 from string import punctuation
 from collections import Counter
@@ -95,14 +96,17 @@ while usernamecheck == 0:
                 f.close()
 
                 f = open('colour.txt', 'r')
-                keyWords = [colour]
+                all_lines = f.readlines()
+                keyWords = [all_lines]
+                f = open('colour.txt', 'r')
+                word_freq = Counter([word.strip(punctuation) for line in all_lines for word in line.split()])
                 for f in argv[1:]:
-                    all_lines = f.readlines()
                     for word in keyWords:
                         if word in word_freq:
                             print("I know someone who loves that colour too! ")
                         else:
                             print("I don't know anyone else with colour tastes as good as your's! ")
+                delay(x)
                 print("I really love " + colour + " too !")
                 f.close
                 f = open('colour.txt', 'a')
