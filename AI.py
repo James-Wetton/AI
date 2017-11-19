@@ -97,21 +97,26 @@ while usernamecheck == 0:
 
                 f = open('colour.txt', 'r')
                 all_lines = f.readlines()
-                keyWords = [all_lines]
-                f = open('colour.txt', 'r')
-                word_freq = Counter([word.strip(punctuation) for line in all_lines for word in line.split()])
-                for f in argv[1:]:
-                    for word in keyWords:
-                        if word in word_freq:
-                            print("I know someone who loves that colour too! ")
-                        else:
-                            print("I don't know anyone else with colour tastes as good as your's! ")
-                delay(x)
-                print("I really love " + colour + " too !")
+                colour = colour + '\n'
+                if colour.lower() in all_lines:
+                    if all_lines.count(colour) > 1:
+                        amount = "people"
+                        like = "like"
+                    else:
+                        amount = "person"
+                        like = "likes"
+                    colour = colour.lower()
+                    print("I know " + str(all_lines.count(colour)) , amount, "who", like, "the colour " + colour[:-1] + "!")
+                else:
+                    print("You have good tastes!")
+                time.sleep(x)
+                print("I really love " + colour[:-1] + " too !")
                 f.close
                 f = open('colour.txt', 'a')
                 f.write(colour + '\n')
                 f.close()
+                f = open(name + '.txt', 'a')
+                f.write(colour + '\n')
 
                 time.sleep(2)
 
