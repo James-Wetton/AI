@@ -1,1 +1,3 @@
 *.txt
+*.csv
+//ignores .txt files so that user's files do not get uploaded
