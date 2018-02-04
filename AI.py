@@ -1,5 +1,6 @@
 import time
 import random
+import csv
 import os
 import sys
 from sys import argv
@@ -8,7 +9,7 @@ import getpass
 from string import ascii_lowercase
 from string import punctuation
 from collections import Counter
-x = 1
+x = 1 #timer variable
 
 
 usernamecheck = 0 
