@@ -1,5 +1,6 @@
 import time
 import random
+import csv
 import os
 import sys
 from sys import argv
@@ -8,10 +9,22 @@ import getpass
 from string import ascii_lowercase
 from string import punctuation
 from collections import Counter
-import csv
-x = 1
-usernamecheck = 0
+x = 1 #timer variable
 csvnames = []
+def UsernameCSV():
+    with open("AI-datatemplate.csv","r") as csv_file:
+        counter = 0
+        csv_reader = csv.reader(csv_file)
+        global csvnames
+        for line in csv_reader:
+            if counter == 0:
+                csvnames = line
+                counter = counter +1
+            else:
+                None
+                counter = counter +1
+
+usernamecheck = 0 
 while usernamecheck == 0:
     try:
         print("To restart, type \'quit()\' in any field")
@@ -22,7 +35,7 @@ while usernamecheck == 0:
         time.sleep(x)
         if used == ('quit()'):
             break
-        if used in ('Y', 'Yes', 'y', 'yes'):
+        if used in ('Y', 'Yes', 'y', 'yes', 'Yeah', 'yeah'):
             randomqu = ['What\'s your name? ', 'What\'s your name again? ', 'I Don\'t remember your name! What is it again? ']
             username = input(random.choice(randomqu))
             if os.path.exists(username + '.txt'):
