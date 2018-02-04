@@ -22,7 +22,7 @@ while usernamecheck == 0:
         time.sleep(x)
         if used == ('quit()'):
             break
-        if used in ('Y', 'Yes', 'y', 'yes'):
+        if used in ('Y', 'Yes', 'y', 'yes', 'Yeah', 'yeah'):
             randomqu = ['What\'s your name? ', 'What\'s your name again? ', 'I Don\'t remember your name! What is it again? ']
             username = input(random.choice(randomqu))
             if os.path.exists(username + '.txt'):
