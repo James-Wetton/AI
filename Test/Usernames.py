@@ -2,12 +2,13 @@ import os
 import sys
 import time
 import pybase64
+import csv
 Username = str(input("Enter Username: "))
 LUser = str.lower(Username)
 contents = []
 Names = []
 def RFile():
-    F = open("Usernames.csv","r")
+    F = open("Usernames.txt","r")
     if F.mode == "r":
         global contents
         contents = F.readlines()
@@ -40,11 +41,12 @@ def Shutdown():
     print("1")
 RFile()
 NSpace()
-for x in Names:
-    if LUser == x:
-        if LUser == "circlegame" or LUser == "circle_game":
-            print("Nice Try")
-            print("""
+def UsernameCheck():
+    for x in Names:
+        if LUser == x:
+            if LUser == "circlegame" or LUser == "circle_game":
+                print("Nice Try")
+                print("""
               _ _
            .-/ / )
            |/ / /
@@ -55,10 +57,10 @@ for x in Names:
        /     .---'
       /    .'
           /
-            """)
-            Shutdown()
+                """)
+                Shutdown()
+            else:
+                print("Invalid Username")
+                Shutdown()
         else:
-            print("Invalid Username")
-            Shutdown()
-    else:
-        None
+            None
