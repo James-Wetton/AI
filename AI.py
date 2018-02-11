@@ -9,22 +9,41 @@ import getpass
 from string import ascii_lowercase
 from string import punctuation
 from collections import Counter
-x = 1 #timer variable
-csvnames = []
-def UsernameCSV():
+csvNames = []
+passwords = []
+dateOfCreation = []
+timesLogin = []
+favouriteColour = []
+age = []
+usernamecheck = 0
+def getCSV():
     with open("AI-datatemplate.csv","r") as csv_file:
-        counter = 0
-        csv_reader = csv.reader(csv_file)
-        global csvnames
-        for line in csv_reader:
-            if counter == 0:
-                csvnames = line
-                counter = counter +1
-            else:
-                None
-                counter = counter +1
-
-usernamecheck = 0 
+        reader = csv.reader(csv_file)
+        for x in reader:
+            for y in x:
+                if y == "Username":
+                    global csvNames
+                    csvNames = x
+                elif y == "Password"
+                    global passwords 
+                    passwords = x
+                elif y == "Date creation":
+                    global dateOfCreation 
+                    dateOfCreation = x
+                elif y == "Times Login":
+                    global timesLogin
+                    timesLogin = x
+                elif y == "Favourite Colour":
+                    global favouriteColour
+                    favouriteColour = x
+                elif y == "Age":
+                    global age
+                    age = x
+                else:
+                    None
+getCSV()
+x = 1 #timer variable
+print(csvNames)
 while usernamecheck == 0:
     try:
         print("To restart, type \'quit()\' in any field")
@@ -168,9 +187,3 @@ while usernamecheck == 0:
             
     except KeyboardInterrupt:
         break
-        
-        
-
-    
-
-
