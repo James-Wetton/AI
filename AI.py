@@ -16,6 +16,7 @@ timesLogin = []
 favouriteColour = []
 age = []
 usernamecheck = 0
+UserID = ""
 def getCSV():
     with open("AI-datatemplate.csv","r") as csv_file:
         reader = csv.reader(csv_file)
@@ -57,53 +58,12 @@ while usernamecheck == 0:
         if used in ('Y', 'Yes', 'y', 'yes', 'Yeah', 'yeah'):
             randomqu = ['What\'s your name? ', 'What\'s your name again? ', 'I Don\'t remember your name! What is it again? ']
             username = input(random.choice(randomqu))
-            if os.path.exists(username + '.txt'):
-                time.sleep(x)
-                print("I thought I remembered you!")
-                time.sleep(2)
-                f = open(username + '_password.txt', 'r')
-                enterpass = f.readline()
-                enterpass = pybase64.standard_b64decode(enterpass)
-                enterpass = str(enterpass)
-                enterpass = enterpass[2:]
-                enterpass = enterpass[:-1]
-                correctpass = 0
-                while correctpass == 0:
-                    temppassword = input("Please enter your password: ")
-                    if temppassword == enterpass:
-                        correctpass = correctpass + 1
-                    else:
-                        print("Incorrect password. Please try again.")
-                        time.sleep(x)
-                        
-
-                time.sleep(x) 
-                f = open(username + '.txt', 'r')
-                name = f.readline()
-                age = f.readline()
-                colour = f.readline()
-                print("\n")
-                print("Your name is " + name + "and you're " + str(age) + " ")
-                print("Your favourite colour is " + colour)
-                correct = input("Am I right? ")
-                if correct in ('Y', 'y', 'Yes', 'yes'):
-                    print("I thought so...")
-                    f.close()
-                    f = open(username + '.txt', 'a')
+            for x in csvNames:
+                if username == x:
+                    UserID = x
+                    usernamecheck = 1
                 else:
-                    time.sleep(x)
-                    print("I'm sorry")
-                    time.sleep(x)
-                    print("Please make an account")
-                    time.sleep(x)
-                    print("Rebooting...")
-                    time.sleep(2)
-                    print("\n \n")
-                    pass
-            else:
-                time.sleep(x)
-                print("Sorry, I don't remember anybody called " + username)
-                
+                    None
         else:
             randomqn = ['What\'s your name? ', 'So, what\'s your name? ', '']
             name = input("What's your name? ")
