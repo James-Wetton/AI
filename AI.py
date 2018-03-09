@@ -10,11 +10,7 @@ from string import ascii_lowercase
 from string import punctuation
 from collections import Counter
 csvNames = []
-passwords = []
-dateOfCreation = []
-timesLogin = []
-favouriteColour = []
-age = []
+UserPass = ""
 usernamecheck = 0
 UserID = ""
 def getCSV():
@@ -25,21 +21,6 @@ def getCSV():
                 if y == "Username":
                     global csvNames
                     csvNames = x
-                elif y == "Password"
-                    global passwords 
-                    passwords = x
-                elif y == "Date creation":
-                    global dateOfCreation 
-                    dateOfCreation = x
-                elif y == "Times Login":
-                    global timesLogin
-                    timesLogin = x
-                elif y == "Favourite Colour":
-                    global favouriteColour
-                    favouriteColour = x
-                elif y == "Age":
-                    global age
-                    age = x
                 else:
                     None
 getCSV()
@@ -62,6 +43,7 @@ while usernamecheck == 0:
                 if username == x:
                     UserID = x
                     usernamecheck = 1
+                    UserPass = str(input("Insert Password: "))
                 else:
                     None
         else:
@@ -75,14 +57,14 @@ while usernamecheck == 0:
                 f = open(name + '.txt', 'w')
                 f.write(name + '\n')
                 time.sleep(x)
-        
+
                 age = input("How old are you? ")
                 time.sleep(x)
-        
+
                 print("You are already " + str(age) + " years old!")
                 f.write(str(age) + '\n')
                 time.sleep(x)
-            
+
                 colour = input("So, " + name + " , what's your favourite colour? ")
                 time.sleep(x)
                 f.close()
@@ -124,7 +106,7 @@ while usernamecheck == 0:
                     characters = 0
                     for line in f:
                         characters = characters + len(line)
-                        
+
                     if characters > 4:
                         print("Great! I don't think anyone will crack that one...")
                         f.close()
@@ -144,6 +126,6 @@ while usernamecheck == 0:
                 time.sleep(x)
                 f.close()
                 print()
-            
+
     except KeyboardInterrupt:
         break
