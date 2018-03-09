@@ -1,40 +1,33 @@
 import csv
 import os
-Int = 0
-Int2 = 0
-rowNumb = 0
-Result = 0
-Number = 0
-Status = False
-Status2 = False
-Test = str(input("Insert Name \n//"))
-Pass = str("Insert \n//")
-def Digits():
-    global Result
-    Result= Int / Int2
-with open("AI-datatemplate.csv","r") as csv_file:
-    reader = csv.reader(csv_file)
-    for row in reader:
-        Int2 = Int2 + 1
-        for Data in row:
-            Int = Int + 1
-            if Status == False:
-                Number = Number + 1
-            if Test == Data:
-                Status = True
-Digits()
-with open("AI-datatemplate.csv","r") as csv_file:
-    reader = csv.reader(csv_file)
-    for row in reader:
-        if rowNumb == Result:
+User = str(input("Insert Name \n</ "))
+Pass = ""
+def getPass():
+    dataCounter = 1
+    rowCounter = 0
+    limitSwitch1 = False
+    with open("AI-datatemplate.csv","r") as csv_file:
+        reader = csv.reader(csv_file)
+        for row in reader:
             for data in row:
-                if Number == 0:
-                    if Status2 == False:
-                        print(data)
-                        print(Result)
-                        Status2 = True
-                    else:
-                        None
+                if data == User:
+                    limitSwitch1 = True
+                elif data != User and limitSwitch1 == False:
+                    dataCounter = dataCounter + 1
                 else:
-                    Number = Number - 1
+                    None
+        csv_file.close
+    with open("AI-datatemplate.csv","r") as csv_file:
+        reader = csv.reader(csv_file)
+        for row in reader:
+            rowCounter = rowCounter + 1
+            if rowCounter == 2:
+                for data in row:
+                    if dataCounter == 0:
+                        global Pass
+                        Pass = data
+                    else:
+                        dataCounter = dataCounter - 1
+getPass()
+print(Pass)
 os.system("pause")
