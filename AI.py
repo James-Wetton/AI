@@ -23,7 +23,7 @@ def getCSV():
                     csvNames = x
                 else:
                     None
-def getCSV():
+def getPass():
     dataCounter = 1
     rowCounter = 0
     limitSwitch1 = False
@@ -31,9 +31,9 @@ def getCSV():
         reader = csv.reader(csv_file)
         for row in reader:
             for data in row:
-                if data == UserPass:
+                if data == username:
                     limitSwitch1 = True
-                elif data != UserPass and limitSwitch1 == False:
+                elif data != username and limitSwitch1 == False:
                     dataCounter = dataCounter + 1
                 else:
                     None
